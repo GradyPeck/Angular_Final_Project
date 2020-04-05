@@ -37,11 +37,6 @@ export class ApiPaserService {
     let myReturn = [];
     for (let segment of this.data) {
       for (let coords of segment.the_geom.coordinates) {
-        //let coords = segment.the_geom.coordinates[0];
-        /*if(segment.the_geom.coordinates[1] != null) {
-          console.log("Double coords!");
-          console.log(segment);
-        }*/
         let path = [];
         for (let ordpair of coords) {
           path.push(new google.maps.LatLng(ordpair[1], ordpair[0]));

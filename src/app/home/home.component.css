@@ -91,18 +91,21 @@ hr {
 #pacerScore {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: space-between;
     align-self: center;
     align-items: center;
     position: relative;
     height: 100vh;
     padding: 25px;
+    padding-bottom: 100px;
     background-color: #F1F1F1;
 }
 
 p {
     font-size: 20px;
     color: black;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #link311 {

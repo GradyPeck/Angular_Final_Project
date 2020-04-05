@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { paserDataService } from './PaserResponse';
+import { HttpClient } from '@angular/common/http';
+//import { paserDataService } from './PaserResponse';
 
 let linecolors : string[] = [
   "#000000",//0 0   0     0
@@ -13,33 +14,42 @@ let linecolors : string[] = [
   "#66FF00",//8 102 255   0
   "#33FF00",//9 51  255   0
   "#00FF00"//10 0   255   0
-]
+];
+
+const apiTarget = "https://grand-rapids-proxy.herokuapp.com/pacer?$limit=1000000";
 
 @Injectable({
   providedIn: 'root'
 })
 
-// ** I'm holding off on building any actual API-retrieval methods until BJ fixes the API issue. **
-
 export class ApiPaserService {
 
-  constructor(private paserdata : paserDataService) { }
+  constructor(private myHTTP : HttpClient) { }
 
-  //harddata is a temporary, hardcoded stand-in for a response from the Paser API. 
-  //harddata = ;
+  data = [];
+
+  retrieveData () {
+    this.myHTTP.get(apiTarget).subscribe((data : any) => {this.data = data});
+  }
 
   processPolylines () {
+    this.retrieveData();
     let myReturn = [];
-    for (let segment of this.paserdata.paser) {
-      let coords = segment.the_geom.coordinates[0];
-      if(segment.the_geom.coordinates[1] != null) {console.log("Double coords!");}
-      let path = [];
-      for (let ordpair of coords) {
-        path.push(new google.maps.LatLng(ordpair[1], ordpair[0]));
+    for (let segment of this.data) {
+      for (let coords of segment.the_geom.coordinates) {
+        //let coords = segment.the_geom.coordinates[0];
+        /*if(segment.the_geom.coordinates[1] != null) {
+          console.log("Double coords!");
+          console.log(segment);
+        }*/
+        let path = [];
+        for (let ordpair of coords) {
+          path.push(new google.maps.LatLng(ordpair[1], ordpair[0]));
+        }
+        let chroma : string = linecolors[segment.paser2019];
+        let aLine = {'path' : path, 'strokeColor' : chroma};
+        myReturn.push(aLine);
       }
-      let chroma : string = linecolors[segment.paser2019];
-      let aLine = {'path' : path, 'strokeColor' : chroma};
-      myReturn.push(aLine);
     }
     return myReturn;
   }

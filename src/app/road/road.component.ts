@@ -45,6 +45,8 @@ export class RoadComponent implements OnInit {
         });
       }
     });
+
+    this.apiPaser.retrieveData();
   }
 
   addMarker(myLat: number, myLng: number) {

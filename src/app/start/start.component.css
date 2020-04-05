@@ -1,112 +1,3 @@
-/* Wrapper for the loading screen everything within this */
-#loading-wrapper {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  font-family: sans-serif;
-  }
-  
-/* Styles for loading text */
-#loading-text {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: rgb(199, 199, 199);
-  width: 100px;
-  height: 30px;
-  margin: -7px 0 0 -45px;
-  text-align: center;
-  font-family: 'PT Sans Narrow', sans-serif;
-  font-size: 20px;
-}
-
-/* Styles for moving animation in loading screen  OUTTER*/
-#loading-content {
-  display: block;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  width: 170px;
-  height: 170px;
-  margin: -85px 0 0 -85px;
-  border: 3px solid #fff;
-}
-  
-/* Styles for moving animation in loading screen  MIDDLE*/
-#loading-content:after {
-  content: "";
-  position: absolute;
-  border: 3px solid #fff;
-  left: 15px;
-  right: 15px;
-  top: 15px;
-  bottom: 15px;
-}
-  
-/* Styles for moving animation in loading screen  INNER*/
-#loading-content:before {
-  content: "";
-  position: absolute;
-  border: 3px solid #fff;
-  left: 5px;
-  right: 5px;
-  top: 5px;
-  bottom: 5px;
-}
-  
-/* OUTTER color and animation */
-#loading-content {
-  border: 3px solid transparent;
-  border-top-color: #0F0;
-  border-bottom-color: #0F0;
-  border-radius: 50%;
-  -webkit-animation: loading 2s linear infinite;
-  -moz-animation: loading 2s linear infinite;
-  -o-animation: loading 2s linear infinite;
-  animation: loading 2s linear infinite;
-}
-  
-/* MIDDLE color and animation */
-#loading-content:before {
-  border: 3px solid transparent;
-  border-top-color: #D4CC6A;
-  border-bottom-color: #D4CC6A;
-  border-radius: 50%;
-  -webkit-animation: loading 3s linear infinite;
-    -moz-animation: loading 2s linear infinite;
-  -o-animation: loading 2s linear infinite;
-  animation: loading 3s linear infinite;
-}
- 
-/* INNER color and animation */
-#loading-content:after {
-  border: 3px solid transparent;
-  border-top-color: #FF4136;
-  border-bottom-color: #FF4136;
-  border-radius: 50%;
-  -webkit-animation: loading 1.5s linear infinite;
-  animation: loading 1.5s linear infinite;
-    -moz-animation: loading 2s linear infinite;
-  -o-animation: loading 2s linear infinite;
-}
-  
-/* Actual animation for moving loading screen */
-@keyframes loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 img {
   display: flex;
   justify-content: center;
@@ -114,27 +5,13 @@ img {
   align-self: center;
 }
 
-/* this class will show once the loading screen is done */
-.showDetails {
-  width: 100vw;
-  height: 100vh;
-  background: #1179CC;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 #detailContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 90vw;
-  height: 90vh;
-  max-width: 500px;
-  /* max-height: 500px; */
-  background-color: rgba(255, 255, 255, 0.9);
-  /* border-radius: 12px; */
+  width: 100vw;
+  height: 100vh;
 }
 /* showDetails content */
 h1 {

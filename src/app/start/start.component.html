@@ -1,31 +1,20 @@
-<div id="loading-wrapper" [routerLink]="['/start']" routerLinkActive="router-link-active"
-    class="animated zoomOut slower delay-4s">
-    <div id="loading-text">Loading...</div>
-    <div id="loading-content"></div>
-</div>
+<div id="detailContainer">
+    <img alt="logo" src="assets/logo.png" style="width: 250px; height: 250px;">
 
-<div class="animated zoomIn slower delay-4s">
-    <div class="showDetails">
+    <h2>Welcome!</h2>
 
-        <div id="detailContainer">
-            <img alt="logo" src="assets/logo.png" style="width: 250px; height: 250px;">
+    <p>The goal of the Open Roads project is to lower the information barriers between citizens and their
+        government.
+        It can be difficult to comprehend the whole truth of large, complicated systems like the infrastructure
+        of an
+        entire city. Our hope is that by providing a clear, easily digestable view of the real conditions on the
+        ground we can
+        overcome bias, facilitate meaningful communication, and foster greater civic engagement.
+    </p>
 
-            <h2>Welcome!</h2>
-
-            <p>The goal of the Open Roads project is to lower the information barriers between citizens and their
-                government.
-                It can be difficult to comprehend the whole truth of large, complicated systems like the infrastructure
-                of an
-                entire city. Our hope is that by providing a clear, easily digestable view of the real conditions on the
-                ground we can
-                overcome bias, facilitate meaningful communication, and foster greater civic engagement.
-            </p>
-
-            <div id="endDetails">
-                <button id="endBtn" [routerLink]="['/home']" routerLinkActive="router-link-active">Lets get
-                    started!</button>
-            </div>
-
-        </div>
+    <div id="endDetails">
+        <button id="endBtn" [routerLink]="['/home']" routerLinkActive="router-link-active">Lets get
+            started!</button>
     </div>
+
 </div>

@@ -22,7 +22,7 @@ export class Api311Service {
 
   //extracts coordinates from the currently stored dataset, back to the cutoff date provided
   processCoordinates (cutoffDate : string) {
-    this.retrieveData();
+    //this.retrieveData();    data is currently retrieved oninit of road component
     let myReturn = [];
     let dateCutoff = new Date(cutoffDate); //flipping the cutoff date into a Date object
     for (let report of this.data) {

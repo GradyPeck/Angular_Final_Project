@@ -33,7 +33,7 @@ export class ApiPaserService {
   }
 
   processPolylines () {
-    this.retrieveData();
+    //this.retrieveData();  data is currently retrieved oninit of road component
     let myReturn = [];
     for (let segment of this.data) {
       for (let coords of segment.the_geom.coordinates) {
@@ -42,7 +42,8 @@ export class ApiPaserService {
           path.push(new google.maps.LatLng(ordpair[1], ordpair[0]));
         }
         let chroma : string = linecolors[segment.paser2019];
-        let aLine = {'path' : path, 'strokeColor' : chroma};
+        //let width : number = Number(segment.numlanes);
+        let aLine = {'path' : path, 'strokeColor' : chroma, /*'strokeWeight' : width*/};
         myReturn.push(aLine);
       }
     }
